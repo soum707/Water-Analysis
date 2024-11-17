@@ -1,0 +1,23 @@
+import schedule
+import time
+import datetime
+import water_analysis_data
+
+def job():
+    water_analysis_data.main()
+    print(f"Data update job completed at {datetime.datetime.now()}.")
+
+# Schedule the job to run daily and check the day in the function
+def monthly_job():
+    today = datetime.datetime.now()
+    # Run the job only on the 15th of each month
+    if today.day == 15:
+        job()
+
+# Schedule the daily check
+schedule.every().day.at("12:00").do(monthly_job)
+
+# Run the scheduler loop
+while True:
+    schedule.run_pending()
+    time.sleep(1)
