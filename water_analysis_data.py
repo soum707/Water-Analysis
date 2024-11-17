@@ -71,7 +71,7 @@ def save_to_csv(data, filename="water_quality_data.csv"):
     try:
         with open(filename, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.writer(file)
-            writer.writerow(["Parameter", "Value"])
+            writer.writerow(["Mineral", "Value"])
             writer.writerows(data)
         return True
     except Exception as e:
