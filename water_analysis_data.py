@@ -10,6 +10,27 @@ def clean_value(value):
     value = re.sub(r'\s+', ' ', value)
     return value.strip()
 
+def extract_numeric_value(value_str):
+    # Extract numeric value and handle '<' cases
+    try:
+        # Remove any spaces before checking for '<'
+        value_str = value_str.strip()
+        
+        # Handle '<' cases
+        if value_str.startswith('<'):
+            # Remove '<' and any spaces after it
+            numeric_str = value_str[1:].strip()
+        else:
+            numeric_str = value_str
+            
+        # Extract the first number found
+        match = re.search(r'([\d.]+)', numeric_str)
+        if match:
+            return float(match.group(1))
+        return None
+    except:
+        return None
+
 def scrape_water_quality_data():
     url = "https://www.charlottenc.gov/water/Water-Quality"
     
@@ -22,39 +43,33 @@ def scrape_water_quality_data():
         response.raise_for_status()
         
         soup = BeautifulSoup(response.text, 'html.parser')
-        
-        # Look specifically for the box with "Monthly Mineral Analysis"
         boxes = soup.find_all('div', class_=['side-box-content', 'side-box-section'])
         
         data = []
         for box in boxes:
-            # Check if this box contains our data by looking for a known parameter
             if 'Alkalinity' in box.get_text():
                 text = box.get_text(separator='\n')
                 lines = text.split('\n')
                 
                 for line in lines:
                     line = clean_value(line)
-                    if not line:
-                        continue
-                    
-                    # Skip the title
-                    if "Monthly Mineral Analysis" in line:
+                    if not line or "Monthly Mineral Analysis" in line:
                         continue
                         
                     if "Samples were" in line:
-                        data.append(["Metadata", line])
+                        data.append(["Metadata", line, None])  # Add None for numeric value
                         continue
                     
                     if '=' in line:
                         try:
                             parameter, value = line.split('=', 1)
-                            if parameter and value:  # Only add if both parameter and value exist
-                                data.append([parameter.strip(), value.strip()])
+                            if parameter and value:
+                                value = value.strip()
+                                numeric_value = extract_numeric_value(value)
+                                data.append([parameter.strip(), value, numeric_value])
                         except ValueError:
                             continue
                 
-                # Once we've found and processed the correct box, we can break
                 break
 
         return data
@@ -71,7 +86,7 @@ def save_to_csv(data, filename="water_quality_data.csv"):
     try:
         with open(filename, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.writer(file)
-            writer.writerow(["Mineral", "Value"])
+            writer.writerow(["Mineral", "Value", "Numeric_Value"])  # Added new column header
             writer.writerows(data)
         return True
     except Exception as e:
@@ -92,7 +107,9 @@ def main():
         
         print("\nExtracted data:")
         for item in data:
-            print(f"{item[0]}: {item[1]}")
+            # Format the numeric value for display
+            numeric_str = f"(Numeric: {item[2]})" if item[2] is not None else ""
+            print(f"{item[0]}: {item[1]} {numeric_str}")
     else:
         print("Failed to save data to CSV file.")
 

@@ -1,16 +1,16 @@
-Mineral,Value
-Alkalinity as CaCO3,23.5 ppm
-Aluminum,23 ppb
-Ammonia,< 0.05 ppm
-Calcium,11.0 ppm
-Chloride,6.4 ppm
-Conductivity,103 Umhos/cm
-Iron,<50 ppb
-Magnesium,2 ppm
-Manganese,<10 ppb
-Sodium,3.9 ppm
-Sulfate,10.7 ppm
-Total Hardness,35 ppm
-Zinc,<10 ppb
-pH,8.81
-Metadata,Samples were taken from treated water at the Franklin Water Treatment Facility on 9/10/24. Updated 11/15/24
+Mineral,Value,Numeric_Value
+Alkalinity as CaCO3,23.5 ppm,23.5
+Aluminum,23 ppb,23.0
+Ammonia,< 0.05 ppm,0.05
+Calcium,11.0 ppm,11.0
+Chloride,6.4 ppm,6.4
+Conductivity,103 Umhos/cm,103.0
+Iron,<50 ppb,50.0
+Magnesium,2 ppm,2.0
+Manganese,<10 ppb,10.0
+Sodium,3.9 ppm,3.9
+Sulfate,10.7 ppm,10.7
+Total Hardness,35 ppm,35.0
+Zinc,<10 ppb,10.0
+pH,8.81,8.81
+Metadata,Samples were taken from treated water at the Franklin Water Treatment Facility on 9/10/24. Updated 11/15/24,
