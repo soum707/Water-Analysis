@@ -53,15 +53,12 @@ except FileNotFoundError:
     st.error("Data was not found. Sorry for the inconvienience, try again later. ")
     data = None
 
+# Display the data if available
 if data is not None:
-    # Extract metadata row
+    st.subheader("Water Quality Data")
     metadata_row = data[data["Mineral"] == "Metadata"]
     if not metadata_row.empty:
         metadata_text = metadata_row.iloc[0]["Value"]  # Get the Metadata value
         # Display metadata at the top
         st.markdown(f"{metadata_text}")
-
-# Display the data if available
-if data is not None:
-    st.subheader("Water Quality Data")
     st.dataframe(data[["Mineral", "Value"]])

@@ -1,14 +1,15 @@
-Mineral/Contaminant Name,Health Impact,Safe Range (mg/L),Impact Category,Source Link
-Calcium,Strengthens bones but excess may cause kidney stones,40.0-100.0,Safe,https://www.who.int/calcium-guidelines
-Magnesium,Essential for nerves and muscles excess can cause diarrhea,10.0-50.0,Safe,https://www.epa.gov/magnesium-data
-Lead,Harmful at any level may affect brain development,0.0,Danger,https://www.epa.gov/lead-contamination
-Fluoride,Prevents cavities but excess may cause fluorosis,0.7-1.2,Caution,https://www.who.int/fluoride-guidelines
-Nitrate,Essential for plants high levels cause health risks in infants,<10.0,Caution,https://www.epa.gov/nitrate-levels
-Arsenic,May cause skin damage or cancer with prolonged exposure,0.01,Danger,https://www.who.int/arsenic-guidelines
-Iron,Essential for blood production excess may cause stomach upset,0.3-0.5,Safe,https://www.epa.gov/iron-levels
-Chlorine,Used to disinfect water high levels may cause irritation,<4.0,Safe,https://www.epa.gov/chlorine-guidelines
-Copper,Essential for health but high levels can cause gastrointestinal distress,1.0-1.3,Caution,https://www.who.int/copper-guidelines
-Mercury,Highly toxic may cause kidney damage,0.002,Danger,https://www.epa.gov/mercury-contamination
-Zinc,Supports immune function excess may cause nausea,3.0-5.0,Safe,https://www.who.int/zinc-guidelines
-Sodium,Essential for hydration excess may increase blood pressure,<200.0,Caution,https://www.who.int/sodium-guidelines
-Sulfate,May cause a laxative effect at high levels,<250.0,Safe,https://www.epa.gov/sulfate-guidelines
+Mineral,Safe Range,Health Impacts Above Safe Range
+Alkalinity as CaCO3,20-200 ppm,May cause scaling in pipes and unpleasant taste in water
+Aluminum,0-200 ppb,Linked to neurotoxicity and potential risk for Alzheimer's
+Ammonia,0-0.5 ppm,May cause kidney damage and gastrointestinal irritation
+Calcium,40-100 ppm,Can lead to kidney stones and scaling in plumbing
+Chloride,0-250 ppm,May cause hypertension and a salty taste in water
+Conductivity,0-1500 µmhos/cm,Indicates potential for harmful dissolved solids
+Iron,0-300 ppb,May cause discoloration; bad taste; and potential organ damage
+Magnesium,10-50 ppm,Excess can cause diarrhea and laxative effects
+Manganese,0-50 ppb,Linked to nervous system damage in high doses
+Sodium,0-20 ppm,High levels can contribute to hypertension and cardiovascular risks
+Sulfate,0-250 ppm,May cause diarrhea and gastrointestinal irritation
+Total Hardness,0-120 ppm,High hardness may cause scaling in plumbing and appliances
+Zinc,0-500 pp,Can cause nausea; vomiting; and abdominal pain
+pH,6.5-8.5,Low pH causes corrosion; high pH can cause scaling and bitter taste
