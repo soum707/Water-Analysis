@@ -5,6 +5,7 @@ import base64
 
 # Styling the dashboard 
 
+# Load the background image
 encoded_image = base64.b64encode(open('water_background.jpg', 'rb').read()).decode()
 
 # Set the background
@@ -22,10 +23,14 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Set the font
 st.markdown("""
     <style>
-    * {
-        font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    .stApp {
+        font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+    }
+    h1, h2, h3, p, span {
+        font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
     }
     </style>
     """, unsafe_allow_html=True)
