@@ -6,7 +6,7 @@ import base64
 # Styling the dashboard 
 
 # Load the background image
-encoded_image = base64.b64encode(open('water_background.jpg', 'rb').read()).decode()
+encoded_image = base64.b64encode(open('water_background2.jpg', 'rb').read()).decode()
 
 # Set the background
 st.markdown(
@@ -36,7 +36,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Load data
-st.title("Tap Water Quality Analysis")
+st.title("Charlotte Tap Water Quality Analysis")
 
 # Add a brief introduction
 st.write(
@@ -47,18 +47,22 @@ st.write(
 )
 
 try:
-    data = pd.read_csv("water_quality_data.csv")
+    data = pd.read_csv("water_analysis.csv")
     st.success("Data loaded successfully!")
 except FileNotFoundError:
     st.error("Data was not found. Sorry for the inconvienience, try again later. ")
     data = None
 
+try: 
+    data2 = pd.read_csv("water_quality_data.csv")
+except FileNotFoundError:
+    st.error("Meta Data was not found. Sorry for the inconvienience. ")
 # Display the data if available
-if data is not None:
+if data2 is not None:
     st.subheader("Water Quality Data")
-    metadata_row = data[data["Mineral"] == "Metadata"]
+    metadata_row = data2[data2["Mineral"] == "Metadata"]
     if not metadata_row.empty:
         metadata_text = metadata_row.iloc[0]["Value"]  # Get the Metadata value
         # Display metadata at the top
         st.markdown(f"{metadata_text}")
-    st.dataframe(data[["Mineral", "Value"]])
+    st.dataframe(data[["Mineral", "Value", "Safe Range", "Health Impacts Above Safe Range"]])
