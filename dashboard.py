@@ -6,22 +6,22 @@ import base64
 # Styling the dashboard 
 
 # Load the background image
-encoded_image = base64.b64encode(open('water_background2.jpg', 'rb').read()).decode()
+# encoded_image = base64.b64encode(open('water_background2.jpg', 'rb').read()).decode()
 
-# Set the background
-st.markdown(
-    f"""
-    <style>
-    .stApp {{
-        background-image: url(data:image/jpg;base64,{encoded_image});
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# # Set the background
+# st.markdown(
+#     f"""
+#     <style>
+#     .stApp {{
+#         background-image: url(data:image/jpg;base64,{encoded_image});
+#         background-size: cover;
+#         background-position: center;
+#         background-repeat: no-repeat;
+#     }}
+#     </style>
+#     """,
+#     unsafe_allow_html=True
+# )
 
 # Set the font
 st.markdown("""

@@ -1,10 +1,10 @@
 import schedule
 import time
 import datetime
-import water_analysis_data
+import clt_data_scraping
 
 def job():
-    water_analysis_data.main()
+    clt_data_scraping.main()
     print(f"Data update job completed at {datetime.datetime.now()}.")
 
 # Schedule the job to run daily and check the day in the function
